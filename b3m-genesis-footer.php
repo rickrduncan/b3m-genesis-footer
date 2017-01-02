@@ -2,13 +2,13 @@
 /**
  * 	Plugin Name: 	B3M Genesis Footer
  * 	Plugin URI: 	http://rickrduncan.com/wordpress-plugins
- * 	Description: 	Customize footer credits from the Genesis admin page
+ * 	Description: 	Customize footer credits from the Genesis admin page.
  *	Author: 		Rick R. Duncan - B3Marketing, LLC
  *	Author URI: 	https://rickrduncan.com
  *
  *  Credit: 		Nuts and Bolts Media, LLC (https://www.nutsandboltsmedia.com/genesis-custom-footer/)
  *
- * 	Version: 		1.0.0
+ * 	Version: 		1.0.1
  * 	License: 		GPLv3
  *
  *
@@ -144,11 +144,12 @@ function b3mgf_remove_footer_filters() {
 /**
 * And finally, display our custom footer text
 *
+* @since 1.0.1 - Added <p> tags around output of data.
 * @since 1.0.0
 */
 function b3mgf_footer_creds_text($creds) {
 	
-	$custom_creds = genesis_get_option('b3mgf_footer_creds');
+	$custom_creds = '<p>' . genesis_get_option('b3mgf_footer_creds') . '</p>';
 	if ($custom_creds) {
 		return $custom_creds;
 	}
